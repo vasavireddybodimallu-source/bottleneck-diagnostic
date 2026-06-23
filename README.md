@@ -19,14 +19,6 @@ and gives you one 72-hour action. Then it tracks whether you actually did it.
 > **Prediction:** Taking another course will not help.
 > **Action:** Ship one project publicly within 72 hours.
 
-## Screenshots
-
-> [PASTE SCREENSHOT: Landing page]
-
-> [PASTE SCREENSHOT: Diagnosis result page]
-
-> [PASTE SCREENSHOT: Dashboard]
-
 ## How it works
 
 1. **Intake** — 3-step questionnaire: current situation, behavior questions
