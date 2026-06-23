@@ -1,7 +1,6 @@
 # Bottleneck — AI Diagnostic
 
 7 questions → one diagnosis, one prediction, one action → log what you actually did.
-https://bottleneck-diagnostic.vercel.app/start
 
 ## Stack
 React (Vite) + Supabase (Postgres + Auth + RLS) + Gemini (via a Vercel serverless function).
