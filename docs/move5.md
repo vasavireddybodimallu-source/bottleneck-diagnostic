@@ -1,47 +1,71 @@
-# MOVE 5 : FINAL REPORT
-
-## Person A : Varun
-
-**Cold User / Coached:** Cold
-
-**Relationship:** Classmate
-
-### Diagnosis Given
-
-![Varun Diagnosis](./move5.png)
-
-Your bottleneck is not lack of AI knowledge. Your bottleneck is consuming courses instead of finishing projects.
-
-### Behavioral Evidence
-
-The user completed and published one unfinished project within the next week.
+# MOVE 1 : BE THE TOOL YOURSELF
 
 ---
 
-## Person B : Asmitha
+## Person 1
 
-**Cold User / Coached:** Friend
+### Raw Record
 
-### Diagnosis Given
+Goal: Build a SaaS product using AI APIs  
+Learning AI: 3 months  
+Completed Projects: 0  
+Started but unfinished projects: 4  
+What they tried: Watching YouTube tutorials daily  
+Why they think they are stuck: "I just need to learn more before I start."
 
-![Diagnosis Screenshot 1](./image.png)
+### Evidence
 
-![Diagnosis Screenshot 2](./image2.jpeg)
+![Evidence 1](./person1-1.png)  
+![Evidence 2](./person1-2.png)  
+![Evidence 3](./person1-3.png)  
+![Evidence 4](./person1-4.png)
 
-![Diagnosis Screenshot 3](./image3.jpeg)
+### Diagnosis Sentence
 
-Your bottleneck is not technical skill. Your bottleneck is avoiding outreach and feedback.
+Your bottleneck is not lack of AI knowledge. Your bottleneck is avoiding execution by staying in a tutorial loop. Another tutorial will not move you forward.
 
-### Behavioral Evidence
+### Reaction
 
-The user posted their project publicly and contacted three potential clients.
+The user agreed that they had delayed building projects because they felt they needed more knowledge first.
+
+### What They Did Next
+
+Committed to finishing and publishing a project before taking another course.
 
 ---
 
-## The Surprise
+## Person 2
 
-I expected users to immediately act after receiving a diagnosis.
+### Raw Record
 
-One user strongly agreed with the diagnosis but still delayed taking action.
+Goal: Build AI productivity tools that generate users and revenue  
+Learning AI: 2 years  
+Completed Projects: 6  
+Started but unfinished projects: 1  
+What they tried: Building in public, posting on X, launching multiple small projects  
+Why they think they are stuck: "Nothing gets users or revenue."
 
-This showed that recognizing a bottleneck does not automatically lead to behavior change.
+### Evidence
+
+![Evidence 1](./person2-1.png)  
+![Evidence 2](./person2-2.png)  
+![Evidence 3](./person2-3.png)  
+![Evidence 4](./person2-4.png)
+
+### Diagnosis Sentence
+
+Your bottleneck is not execution. You consistently ship projects. Your bottleneck is distribution and positioning. Building another project without understanding who it is for and how it reaches users will not solve the problem.
+
+### Reaction
+
+The user agreed that they spend most of their time building and very little time talking to users or validating demand before creating products.
+
+### What They Did Next
+
+Committed to interviewing potential users and focusing on distribution before starting another project.
+
+---
+
+## MOVE IMAGE
+
+![Move Image](./move5.png)
