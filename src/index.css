@@ -1,0 +1,319 @@
+/* ---------- Tokens ----------
+   Paper:    #F5F6F2  (cool paper, not cream)
+   Ink:      #14171A
+   Line:     #DADFD6
+   Teal:     #2B6E63  (primary action / system color)
+   Amber:    #D98C2B  (reserved ONLY for the verdict/diagnosis stamp)
+   Red:      #B33A3A  (errors only)
+------------------------------- */
+
+:root {
+  --paper: #f5f6f2;
+  --paper-raised: #ffffff;
+  --ink: #14171a;
+  --ink-soft: #5b625c;
+  --line: #dadfd6;
+  --teal: #2b6e63;
+  --teal-dark: #1d4d45;
+  --amber: #d98c2b;
+  --red: #b33a3a;
+  --mono: 'IBM Plex Mono', monospace;
+  --serif: 'Fraunces', serif;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+body {
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px);
+  background-size: 100% 32px;
+  background-position: 0 96px;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+}
+
+a { color: var(--teal-dark); }
+
+.topbar {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.mark {
+  font-family: var(--mono);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  font-size: 13px;
+  padding: 4px 8px;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+}
+
+.topbar-sub {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  letter-spacing: 0.03em;
+}
+
+.shell {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--teal-dark);
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+h1.title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 32px;
+}
+
+.card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.field { margin-bottom: 24px; }
+
+.field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.field .qnum {
+  font-family: var(--mono);
+  color: var(--teal-dark);
+  margin-right: 8px;
+}
+
+.field textarea,
+.field input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-size: 15px;
+  background: var(--paper);
+  resize: vertical;
+  min-height: 44px;
+}
+
+.field textarea:focus,
+.field input:focus,
+button:focus-visible,
+.choice-btn:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  padding: 13px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+
+.btn:hover { background: var(--teal-dark); }
+.btn:active { transform: scale(0.98); }
+.btn:disabled { background: var(--ink-soft); cursor: not-allowed; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.btn-ghost:hover { background: var(--paper); border-color: var(--ink); }
+
+.error-text {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--red);
+  margin-top: 12px;
+}
+
+/* ---- Verdict / diagnosis stamp: the one signature element ---- */
+.report-ticket {
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  background: var(--paper-raised);
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.report-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px dashed var(--line);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.report-body { padding: 24px 20px; }
+
+.verdict-stamp {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  border: 1.5px solid var(--amber);
+  border-radius: 3px;
+  padding: 3px 9px;
+  transform: rotate(-1.5deg);
+  margin-bottom: 14px;
+}
+
+.diagnosis-text {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.4;
+  margin: 0 0 22px;
+}
+
+.report-row {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.report-row:first-of-type { border-top: none; }
+
+.report-row .row-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  width: 84px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.report-row .row-value {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.choice-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.choice-btn {
+  flex: 1;
+  min-width: 90px;
+  border: 1px solid var(--line);
+  background: var(--paper-raised);
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.choice-btn.selected {
+  border-color: var(--teal);
+  background: #eaf2ef;
+  color: var(--teal-dark);
+  font-weight: 500;
+}
+
+.actions-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.dash-row {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  gap: 16px;
+  align-items: start;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.dash-row:first-of-type { border-top: none; }
+
+.dash-diag { font-size: 14px; line-height: 1.5; }
+
+.tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.tag.pending { background: #f1ede2; color: var(--ink-soft); }
+.tag.yes { background: #eaf2ef; color: var(--teal-dark); }
+.tag.no { background: #f6e9e9; color: var(--red); }
+.tag.partial { background: #fbeed9; color: var(--amber); }
+
+.empty-state {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+  padding: 40px 0;
+  text-align: center;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+}
+
+.loader {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
