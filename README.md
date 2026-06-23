@@ -79,8 +79,8 @@ provable, traceable claim. Full writeup and the hand-drawn version: see
 - [`docs/move1.md`](docs/move1.md) — hypothesis + 2 manual diagnoses given
   to real people before any code was written
 - [`docs/move2.md`](docs/move2.md) — written hypothesis, pre-code
-- [`docs/move3.md`](docs/move3.md) — hand-drawn system design
-- [`docs/move4.md`](docs/move4.md) — hand-drawn schema, RLS, two-user
+- [`docs/move3.md`](docs/move3.jpeg) — hand-drawn system design
+- [`docs/move4.md`](docs/move4.jpeg) — hand-drawn schema, RLS, two-user
   isolation test with screenshots
 - [`docs/move5.md`](docs/move5.md) — 2 real users running the live app,
   with logged outcomes
