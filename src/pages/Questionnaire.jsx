@@ -2,19 +2,38 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createSession, generateAndSaveDiagnosis } from '../services/diagnostics.js'
 
-const QUESTIONS = [
-  { key: 'goal', label: 'What are you trying to build?', type: 'textarea' },
-  { key: 'learningTime', label: 'How long have you been learning AI?', type: 'input' },
-  { key: 'projectsShipped', label: 'How many projects have you shipped?', type: 'input' },
-  { key: 'triedSoFar', label: 'What have you tried so far?', type: 'textarea' },
-  { key: 'stuckReason', label: 'Why do you think you’re stuck?', type: 'textarea' },
-  { key: 'nextPlan', label: 'What do you plan to do next?', type: 'textarea' },
-  { key: 'hoursPerWeek', label: 'How many hours/week do you build?', type: 'input' },
+const STEPS = [
+  {
+    title: 'Current situation',
+    fields: [
+      { key: 'goal', label: 'What are you trying to build?', type: 'textarea' },
+      { key: 'learningTime', label: 'How long have you been learning AI?', type: 'input' },
+      { key: 'shipped', label: 'What have you shipped?', type: 'textarea' },
+      { key: 'currentEffort', label: 'What are you doing right now to improve?', type: 'textarea' },
+    ],
+  },
+  {
+    title: 'Behavior',
+    fields: [
+      { key: 'projectsFinished', label: 'How many projects have you finished?', type: 'input' },
+      { key: 'projectsAbandoned', label: 'How many did you abandon?', type: 'input' },
+      { key: 'shownPublicly', label: 'Have you shown your work publicly?', type: 'input' },
+      { key: 'feedbackFrequency', label: 'How often do you seek feedback?', type: 'input' },
+    ],
+  },
+  {
+    title: 'Self assessment',
+    fields: [
+      { key: 'selfBlocker', label: 'What do you think is blocking you?', type: 'textarea' },
+    ],
+  },
 ]
 
-const EMPTY = QUESTIONS.reduce((acc, q) => ({ ...acc, [q.key]: '' }), {})
+const ALL_KEYS = STEPS.flatMap((s) => s.fields.map((f) => f.key))
+const EMPTY = ALL_KEYS.reduce((acc, k) => ({ ...acc, [k]: '' }), {})
 
 export default function Questionnaire() {
+  const [step, setStep] = useState(0)
   const [answers, setAnswers] = useState(EMPTY)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(null)
@@ -22,11 +41,23 @@ export default function Questionnaire() {
 
   const update = (key, value) => setAnswers((a) => ({ ...a, [key]: value }))
 
-  const allFilled = QUESTIONS.every((q) => answers[q.key].trim().length > 0)
+  const currentFields = STEPS[step].fields
+  const stepFilled = currentFields.every((f) => answers[f.key].trim().length > 0)
+  const isLastStep = step === STEPS.length - 1
+
+  function handleNext(e) {
+    e.preventDefault()
+    if (!stepFilled) return
+    setStep((s) => s + 1)
+  }
+
+  function handleBack() {
+    setStep((s) => Math.max(0, s - 1))
+  }
 
   async function handleSubmit(e) {
     e.preventDefault()
-    if (!allFilled || busy) return
+    if (!stepFilled || busy) return
     setBusy(true)
     setError(null)
     try {
@@ -41,33 +72,30 @@ export default function Questionnaire() {
 
   return (
     <div>
-      <p className="eyebrow">Intake — 7 questions</p>
-      <h1 className="title">Find your actual bottleneck.</h1>
-      <p className="subtitle">
-        Answer honestly. The diagnosis is only useful if the inputs are real.
+      <p className="eyebrow">
+        Intake — step {step + 1} of {STEPS.length}: {STEPS[step].title}
       </p>
+      <h1 className="title">Find your actual bottleneck.</h1>
+      <p className="subtitle">Answer honestly. The diagnosis is only useful if the inputs are real.</p>
 
-      <form className="card" onSubmit={handleSubmit}>
-        {QUESTIONS.map((q, i) => (
-          <div className="field" key={q.key}>
-            <label htmlFor={q.key}>
-              <span className="qnum">{String(i + 1).padStart(2, '0')}</span>
-              {q.label}
-            </label>
-            {q.type === 'textarea' ? (
+      <form className="card" onSubmit={isLastStep ? handleSubmit : handleNext}>
+        {currentFields.map((f) => (
+          <div className="field" key={f.key}>
+            <label htmlFor={f.key}>{f.label}</label>
+            {f.type === 'textarea' ? (
               <textarea
-                id={q.key}
+                id={f.key}
                 rows={3}
-                value={answers[q.key]}
-                onChange={(e) => update(q.key, e.target.value)}
+                value={answers[f.key]}
+                onChange={(e) => update(f.key, e.target.value)}
                 disabled={busy}
               />
             ) : (
               <input
-                id={q.key}
+                id={f.key}
                 type="text"
-                value={answers[q.key]}
-                onChange={(e) => update(q.key, e.target.value)}
+                value={answers[f.key]}
+                onChange={(e) => update(f.key, e.target.value)}
                 disabled={busy}
               />
             )}
@@ -75,8 +103,13 @@ export default function Questionnaire() {
         ))}
 
         <div className="actions-row">
-          <button className="btn" type="submit" disabled={!allFilled || busy}>
-            {busy ? 'RUNNING DIAGNOSIS…' : 'RUN DIAGNOSIS →'}
+          {step > 0 && (
+            <button type="button" className="btn btn-ghost" onClick={handleBack} disabled={busy}>
+              ← BACK
+            </button>
+          )}
+          <button className="btn" type="submit" disabled={!stepFilled || busy}>
+            {isLastStep ? (busy ? 'RUNNING DIAGNOSIS…' : 'RUN DIAGNOSIS →') : 'NEXT →'}
           </button>
         </div>
 

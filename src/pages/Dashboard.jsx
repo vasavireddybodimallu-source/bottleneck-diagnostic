@@ -9,6 +9,12 @@ function tagFor(outcome) {
   return { cls: 'partial', label: 'Partial' }
 }
 
+function formatDate(iso) {
+  if (!iso) return '—'
+  const d = new Date(iso)
+  return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
+}
+
 export default function Dashboard() {
   const [rows, setRows] = useState(null)
   const [error, setError] = useState(null)
@@ -20,11 +26,10 @@ export default function Dashboard() {
   return (
     <div>
       <p className="eyebrow">Dashboard</p>
-      <h1 className="title">Diagnosis → outcome.</h1>
+      <h1 className="title">Previous diagnoses.</h1>
       <p className="subtitle">Every verdict this account has received, and what actually happened.</p>
 
       {error && <p className="error-text">{error}</p>}
-
       {!rows && !error && <p className="loader">Loading…</p>}
 
       {rows && rows.length === 0 && (
@@ -32,29 +37,43 @@ export default function Dashboard() {
       )}
 
       {rows && rows.length > 0 && (
-        <div className="card">
-          {rows.map((d) => {
-            const outcome = d.outcomes?.[0]
-            const tag = tagFor(outcome)
-            return (
-              <div className="dash-row" key={d.id}>
-                <div>
-                  <p className="dash-diag"><strong>#{d.id}</strong> — {d.diagnosis}</p>
-                  {outcome && (
-                    <p className="dash-diag" style={{ color: 'var(--ink-soft)' }}>
-                      → {outcome.result?.what_happened}
-                    </p>
-                  )}
-                  {!outcome && (
-                    <Link to={`/follow-up/${d.id}`} style={{ fontSize: 13 }}>
-                      Log outcome →
-                    </Link>
-                  )}
-                </div>
-                <span className={`tag ${tag.cls}`}>{tag.label}</span>
-              </div>
-            )
-          })}
+        <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
+          <table className="diag-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Diagnosis</th>
+                <th>Action</th>
+                <th>Outcome</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((d) => {
+                const outcome = d.outcomes && d.outcomes[0]
+                const tag = tagFor(outcome)
+                return (
+                  <tr key={d.id}>
+                    <td className="td-date">{formatDate(d.created_at)}</td>
+                    <td>
+                      {d.category && <span className="cat-pill">{d.category}</span>}
+                      <div>{d.diagnosis}</div>
+                    </td>
+                    <td>{d.action_plan}</td>
+                    <td>
+                      <span className={'tag ' + tag.cls}>{tag.label}</span>
+                      {!outcome && (
+                        <div>
+                          <Link to={'/follow-up/' + d.id} style={{ fontSize: 12 }}>
+                            Log →
+                          </Link>
+                        </div>
+                      )}
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
         </div>
       )}
 

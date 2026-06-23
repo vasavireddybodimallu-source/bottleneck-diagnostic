@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Landing from './pages/Landing.jsx'
 import Questionnaire from './pages/Questionnaire.jsx'
 import Diagnosis from './pages/Diagnosis.jsx'
 import FollowUp from './pages/FollowUp.jsx'
@@ -13,7 +14,7 @@ export default function App() {
       </header>
       <main className="shell">
         <Routes>
-          <Route path="/" element={<Navigate to="/start" replace />} />
+          <Route path="/" element={<Landing />} />
           <Route path="/start" element={<Questionnaire />} />
           <Route path="/diagnosis/:diagnosisId" element={<Diagnosis />} />
           <Route path="/follow-up/:diagnosisId" element={<FollowUp />} />

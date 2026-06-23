@@ -317,3 +317,86 @@ button:focus-visible,
   font-size: 13px;
   color: var(--ink-soft);
 }
+/* ---- Move 4 additions: comparison card, category pill, dashboard table ---- */
+
+.compare-card {
+  border-color: var(--amber);
+}
+
+.compare-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+}
+
+.compare-row + .compare-row {
+  border-top: 1px dashed var(--line);
+}
+
+.compare-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.compare-value {
+  font-size: 14px;
+  text-align: right;
+  max-width: 70%;
+}
+
+.compare-value-strong {
+  font-weight: 600;
+  color: var(--amber);
+}
+
+.cat-pill {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: #eaf2ef;
+  color: var(--teal-dark);
+  border-radius: 3px;
+  padding: 2px 7px;
+  margin-bottom: 6px;
+}
+
+.diag-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.diag-table th {
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.diag-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+.diag-table tr:last-child td {
+  border-bottom: none;
+}
+
+.td-date {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}

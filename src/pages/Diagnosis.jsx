@@ -14,10 +14,25 @@ export default function Diagnosis() {
   if (error) return <p className="error-text">{error}</p>
   if (!diagnosis) return <p className="loader">Loading report…</p>
 
+  const selfBlocker = diagnosis.sessions && diagnosis.sessions.answers && diagnosis.sessions.answers.selfBlocker
+
   return (
     <div>
       <p className="eyebrow">Result</p>
       <h1 className="title">Your diagnosis is in.</h1>
+
+      {selfBlocker && (
+        <div className="card compare-card">
+          <div className="compare-row">
+            <span className="compare-label">You thought</span>
+            <span className="compare-value">{selfBlocker}</span>
+          </div>
+          <div className="compare-row">
+            <span className="compare-label">System found</span>
+            <span className="compare-value compare-value-strong">{diagnosis.category}</span>
+          </div>
+        </div>
+      )}
 
       <div className="report-ticket">
         <div className="report-head">
@@ -25,7 +40,7 @@ export default function Diagnosis() {
           <span>SESSION {diagnosis.session_id}</span>
         </div>
         <div className="report-body">
-          <span className="verdict-stamp">VERDICT</span>
+          <span className="verdict-stamp">{diagnosis.category || 'VERDICT'}</span>
           <p className="diagnosis-text">{diagnosis.diagnosis}</p>
 
           <div className="report-row">
