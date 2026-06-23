@@ -1,30 +1,24 @@
 # MOVE 1 : BE THE TOOL YOURSELF
 
+---
+
 ## Person 1
 
 ### Raw Record
 
-Goal: Build a SaaS product using AI APIs
-
-Learning AI: 3 months
-
-Completed Projects: 0
-
-Started but unfinished projects: 4
-
-What they tried: Watching YouTube tutorials daily
-
+Goal: Build a SaaS product using AI APIs  
+Learning AI: 3 months  
+Completed Projects: 0  
+Started but unfinished projects: 4  
+What they tried: Watching YouTube tutorials daily  
 Why they think they are stuck: "I just need to learn more before I start."
 
 ### Evidence
 
-![Evidence 1](./image(0).png)
-
-![Evidence 2](./image(1).png)
-
-![Evidence 3](./image(2).png)
-
-![Evidence 4](./image(3).png)
+![Evidence 1](./person1-1.png)  
+![Evidence 2](./person1-2.png)  
+![Evidence 3](./person1-3.png)  
+![Evidence 4](./person1-4.png)
 
 ### Diagnosis Sentence
 
@@ -44,27 +38,19 @@ Committed to finishing and publishing a project before taking another course.
 
 ### Raw Record
 
-Goal: Build AI productivity tools that generate users and revenue
-
-Learning AI: 2 years
-
-Completed Projects: 6
-
-Started but unfinished projects: 1
-
-What they tried: Building in public, posting on X, launching multiple small projects
-
+Goal: Build AI productivity tools that generate users and revenue  
+Learning AI: 2 years  
+Completed Projects: 6  
+Started but unfinished projects: 1  
+What they tried: Building in public, posting on X, launching multiple small projects  
 Why they think they are stuck: "Nothing gets users or revenue."
 
 ### Evidence
 
-![Evidence 1](./image(4).png)
-
-![Evidence 2](./image(5).png)
-
-![Evidence 3](./image(6).png)
-
-![Evidence 4](./image(7).png)
+![Evidence 1](./person2-1.png)  
+![Evidence 2](./person2-2.png)  
+![Evidence 3](./person2-3.png)  
+![Evidence 4](./person2-4.png)
 
 ### Diagnosis Sentence
 
@@ -77,3 +63,9 @@ The user agreed that they spend most of their time building and very little time
 ### What They Did Next
 
 Committed to interviewing potential users and focusing on distribution before starting another project.
+
+---
+
+## MOVE IMAGE
+
+![Move Image](./move5.png)
