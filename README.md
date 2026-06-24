@@ -72,15 +72,15 @@ created_at                   category                     action_taken      │
 The `outcomes.diagnosis_id -> diagnoses.id` link is the evidence link: it's
 what turns "the tool gave an opinion" and "a person did something" into one
 provable, traceable claim. Full writeup and the hand-drawn version: see
-[`docs/move4.md`](docs/move4.md).
+[`docs/move4.md`](docs/move4.jpeg).
 
 ## Hackathon evidence (Track C)
 
 - [`docs/move1.md`](docs/move1.md) — hypothesis + 2 manual diagnoses given
   to real people before any code was written
 - [`docs/move2.md`](docs/move2.md) — written hypothesis, pre-code
-- [`docs/move3.md`](docs/move3.jpeg) — hand-drawn system design
-- [`docs/move4.md`](docs/move4.jpeg) — hand-drawn schema, RLS, two-user
+- [`docs/move3.jpeg`](docs/move3.jpeg) — hand-drawn system design
+- [`docs/move4.jpeg`](docs/move4.jpeg) — hand-drawn schema, RLS, two-user
   isolation test with screenshots
 - [`docs/move5.md`](docs/move5.md) — 2 real users running the live app,
   with logged outcomes
